@@ -1,0 +1,15 @@
+envName: STAGE
+logging:
+  level: INFO
+  loggers:
+    currency-conversion-dropwizard-demo: DEBUG
+# use the simple server factory if you only want to run on a single port
+server:
+  applicationConnectors:
+    - type: http
+      port: 8084
+  adminConnectors:
+    - type: http
+      port: 8083
+
+
