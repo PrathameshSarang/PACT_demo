@@ -24,22 +24,80 @@ import java.util.Objects;
 //@JsonIgnoreProperties(ignoreUnknown = true)
 public class CategoryData {
 
+  @JsonInclude(Include.NON_NULL)
   private String id;
 
+  @JsonInclude(Include.NON_NULL)
   private Integer level;
 
+  @JsonInclude(Include.NON_NULL)
   private String label;
 
+  @JsonInclude(Include.NON_NULL)
   private List<String> parents;
 
   private boolean active;
 
+  public CategoryData(boolean active, Map<String, CategoryData> children) {
+    this.active = active;
+    this.children = children;
+  }
+
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<CategoryAttributeData> attributes;
 
+  @JsonInclude(Include.NON_NULL)
   private Map<String, CategoryData> children;
 
-  public CategoryData() {
+  //Level 2 Attribute
+  public CategoryData(String id, Integer level, String label, List<String> parents, boolean active, Map<String, CategoryData> children) {
+    this.id = id;
+    this.level = level;
+    this.label = label;
+    this.parents = parents;
+    this.active = active;
+    this.children = children;
   }
+
+  public CategoryData(String id, Integer level, String label, List<String> parents, boolean active, List<CategoryAttributeData> attributes) {
+    this.id = id;
+    this.level = level;
+    this.label = label;
+    this.parents = parents;
+    this.active = active;
+    this.attributes = attributes;
+  }
+
+  @Override
+  public String toString() {
+    return "CategoryData{" +
+            "id='" + id + '\'' +
+            ", level=" + level +
+            ", label='" + label + '\'' +
+            ", parents=" + parents +
+            ", active=" + active +
+            ", attributes=" + attributes +
+            ", children=" + children +
+            '}';
+  }
+
+  /**
+   * @deccription For Level 1 catagory
+   */
+  public CategoryData(String id, Integer level, String label, boolean active, Map<String, CategoryData> children) {
+    this.id = id;
+    this.level = level;
+    this.label = label;
+    this.active = active;
+    this.children = children;
+  }
+  /**
+   * @deccription For Level 3 catagory
+   */
+
+
+ /* public CategoryData() {
+  }*/
 
   public String getId() {
     return id;

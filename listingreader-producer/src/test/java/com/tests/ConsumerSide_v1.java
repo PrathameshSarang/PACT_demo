@@ -18,7 +18,7 @@ import java.util.HashMap;
 /**
  * @description Junit Rule of writing the PACT Test File
  */
-public class Test_ConsumerSide_v1 {
+public class ConsumerSide_v1 {
 
     public int mockPort=8085;
 

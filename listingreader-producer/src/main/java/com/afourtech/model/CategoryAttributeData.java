@@ -14,6 +14,8 @@ public class CategoryAttributeData {
   private String attributeName;
   private String uiAttributeName;
   private Integer priority;
+
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String description;
   private RequirementLevel merchantRequirement;
   private RequirementLevel consumerRequirement;
@@ -22,6 +24,50 @@ public class CategoryAttributeData {
   private Integer maxValues;
   private boolean allowOther;
   private String selectionMode;
+
+  @Override
+  public String toString() {
+    return "CategoryAttributeData{" +
+            "attributeName='" + attributeName + '\'' +
+            ", uiAttributeName='" + uiAttributeName + '\'' +
+            ", priority=" + priority +
+            ", description='" + description + '\'' +
+            ", merchantRequirement=" + merchantRequirement +
+            ", consumerRequirement=" + consumerRequirement +
+            ", values=" + values +
+            ", minValues=" + minValues +
+            ", maxValues=" + maxValues +
+            ", allowOther=" + allowOther +
+            ", selectionMode='" + selectionMode + '\'' +
+            '}';
+  }
+
+  public CategoryAttributeData(String attributeName, String uiAttributeName, Integer priority, String description, RequirementLevel merchantRequirement, RequirementLevel consumerRequirement, List<String> values, Integer minValues, Integer maxValues, boolean allowOther, String selectionMode) {
+    this.attributeName = attributeName;
+    this.uiAttributeName = uiAttributeName;
+    this.priority = priority;
+    this.description = description;
+    this.merchantRequirement = merchantRequirement;
+    this.consumerRequirement = consumerRequirement;
+    this.values = values;
+    this.minValues = minValues;
+    this.maxValues = maxValues;
+    this.allowOther = allowOther;
+    this.selectionMode = selectionMode;
+  }
+
+  public CategoryAttributeData(String attributeName, String uiAttributeName, Integer priority, RequirementLevel merchantRequirement, RequirementLevel consumerRequirement, List<String> values, Integer minValues, Integer maxValues, boolean allowOther, String selectionMode) {
+    this.attributeName = attributeName;
+    this.uiAttributeName = uiAttributeName;
+    this.priority = priority;
+    this.merchantRequirement = merchantRequirement;
+    this.consumerRequirement = consumerRequirement;
+    this.values = values;
+    this.minValues = minValues;
+    this.maxValues = maxValues;
+    this.allowOther = allowOther;
+    this.selectionMode = selectionMode;
+  }
 
   public String getAttributeName() {
     return attributeName;
