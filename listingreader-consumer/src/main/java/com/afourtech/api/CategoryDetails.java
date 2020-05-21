@@ -4,9 +4,9 @@ package com.afourtech.api;
 import com.afourtech.model.CategoryData;
 import com.afourtech.model.Status;
 
-public class CategoryDataResponse {
+public class CategoryDetails {
 
-    public CategoryDataResponse() {
+    public CategoryDetails() {
     }
 
     private Status status;
@@ -36,7 +36,7 @@ public class CategoryDataResponse {
                 '}';
     }
 
-    public CategoryDataResponse(Status status, CategoryData data) {
+    public CategoryDetails(Status status, CategoryData data) {
         this.status = status;
         this.data = data;
     }

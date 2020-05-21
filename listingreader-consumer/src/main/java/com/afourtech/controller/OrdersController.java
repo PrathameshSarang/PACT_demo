@@ -1,6 +1,6 @@
 package com.afourtech.controller;
 
-import com.afourtech.api.OrderResponse;
+import com.afourtech.api.OrderDetails;
 import com.afourtech.client.CategoryClient;
 import com.afourtech.db.OrdersDB;
 import com.afourtech.model.Order;
@@ -34,7 +34,7 @@ public class OrdersController {
     @Path("/{id}")
     public Response getOrderById(@PathParam("id") Integer id) {
         OrderService service = new OrderService(client);
-        OrderResponse response =  service.getOrderById(id);
+        OrderDetails response =  service.getOrderById(id);
         if (response.getOrder() != null)
             return Response.ok(response).build();
         else

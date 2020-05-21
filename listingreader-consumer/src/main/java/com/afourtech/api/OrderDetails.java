@@ -4,7 +4,7 @@ import com.afourtech.model.CategoryData;
 import com.afourtech.model.Order;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
-public class OrderResponse {
+public class OrderDetails {
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private Order order;
@@ -13,13 +13,13 @@ public class OrderResponse {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private String message;
 
-    public OrderResponse(Order order, CategoryData category, String message) {
+    public OrderDetails(Order order, CategoryData category, String message) {
         this.order = order;
         this.category = category;
         this.message = message;
     }
 
-    public OrderResponse(String msg) {
+    public OrderDetails(String msg) {
         this.order = null;
         this.message = msg ;
     }

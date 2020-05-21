@@ -1,8 +1,8 @@
 package com.afourtech.controller;
 
 
-import com.afourtech.api.CategoryDataResponse;
-import com.afourtech.api.OrderResponse;
+import com.afourtech.api.CategoryDetails;
+import com.afourtech.api.OrderDetails;
 import com.afourtech.client.CategoryClient;
 import com.afourtech.db.OrdersDB;
 import com.afourtech.model.CategoryData;
@@ -16,16 +16,16 @@ public class OrderService {
         this.client = client;
     }
 
-    public OrderResponse getOrderById(Integer id){
+    public OrderDetails getOrderById(Integer id){
         Order order = OrdersDB.getOrder(id);
         if (order!=null) {
-            CategoryDataResponse res = client.getCategoryById(order.getCategoryId());
+            CategoryDetails res = client.getCategoryById(order.getCategoryId());
             if (res.getStatus().getCode() == 200) {
                 CategoryData categorydata = res.getData();
-                return new OrderResponse(order, categorydata,"Order details Retrieved Successfully!");
+                return new OrderDetails(order, categorydata,"Order details Retrieved Successfully!");
             } else
-                return new OrderResponse(res.getStatus().toString());
+                return new OrderDetails(res.getStatus().toString());
         }else
-            return new OrderResponse("Order does not exist");
+            return new OrderDetails("Order does not exist");
     }
 }
