@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.afourtech</groupId>
-    <artifactId>listingreader</artifactId>
+    <artifactId>listingreader-producer</artifactId>
     <version>1.0-SNAPSHOT</version>
 
 
     <properties>
-        <dropwizard.version>1.0.0</dropwizard.version>
+        <dropwizard.version>2.0.9</dropwizard.version>
     </properties>
 
     <dependencies>
@@ -32,7 +32,7 @@
         </dependency>
     </dependencies>
     <build>
-        <finalName>listingreader-consumer-${version}</finalName>
+        <finalName>listingreader-producer-${version}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -43,40 +43,40 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>2.3</version>
-                <configuration>
-                    <createDependencyReducedPom>true</createDependencyReducedPom>
-                    <filters>
-                        <filter>
-                            <artifact>*:*</artifact>
-                            <excludes>
-                                <exclude>META-INF/*.SF</exclude>
-                                <exclude>META-INF/*.DSA</exclude>
-                                <exclude>META-INF/*.RSA</exclude>
-                            </excludes>
-                        </filter>
-                    </filters>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                        <configuration>
-                            <transformers>
-                                <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
-                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>com.afourtech.application.ListingReaderApplication</mainClass>
-                                </transformer>
-                            </transformers>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-shade-plugin</artifactId>-->
+<!--                <version>2.3</version>-->
+<!--                <configuration>-->
+<!--                    <createDependencyReducedPom>true</createDependencyReducedPom>-->
+<!--                    <filters>-->
+<!--                        <filter>-->
+<!--                            <artifact>*:*</artifact>-->
+<!--                            <excludes>-->
+<!--                                <exclude>META-INF/*.SF</exclude>-->
+<!--                                <exclude>META-INF/*.DSA</exclude>-->
+<!--                                <exclude>META-INF/*.RSA</exclude>-->
+<!--                            </excludes>-->
+<!--                        </filter>-->
+<!--                    </filters>-->
+<!--                </configuration>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <phase>package</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>shade</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            <transformers>-->
+<!--                                <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>-->
+<!--                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">-->
+<!--                                    <mainClass>com.afourtech.application.ListingReaderApplication</mainClass>-->
+<!--                                </transformer>-->
+<!--                            </transformers>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -86,18 +86,18 @@
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
-            <plugin>
-                <!-- mvn pact:publish  -->
-                <groupId>au.com.dius</groupId>
-                <artifactId>pact-jvm-provider-maven_2.11</artifactId>
-                <version>3.5.10</version>
-                <configuration>
-                    <pactDirectory>../pacts</pactDirectory> <!-- Defaults to ${project.build.directory}/pacts -->
-                    <pactBrokerUrl>http://192.168.11.1:8113</pactBrokerUrl>
-                    <projectVersion>${project.version}</projectVersion> <!-- Defaults to ${project.version} -->
-                    <trimSnapshot>true</trimSnapshot> <!-- Defaults to false -->
-                </configuration>
-            </plugin>
+<!--            <plugin>-->
+<!--                &lt;!&ndash; mvn pact:publish  &ndash;&gt;-->
+<!--                <groupId>au.com.dius</groupId>-->
+<!--                <artifactId>pact-jvm-provider-maven_2.11</artifactId>-->
+<!--                <version>3.5.10</version>-->
+<!--                <configuration>-->
+<!--                    <pactDirectory>../pacts</pactDirectory> &lt;!&ndash; Defaults to ${project.build.directory}/pacts &ndash;&gt;-->
+<!--                    <pactBrokerUrl>http://192.168.11.1:8113</pactBrokerUrl>-->
+<!--                    <projectVersion>${project.version}</projectVersion> &lt;!&ndash; Defaults to ${project.version} &ndash;&gt;-->
+<!--                    <trimSnapshot>true</trimSnapshot> &lt;!&ndash; Defaults to false &ndash;&gt;-->
+<!--                </configuration>-->
+<!--            </plugin>-->
         </plugins>
     </build>
 </project>
