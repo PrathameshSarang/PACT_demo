@@ -20,16 +20,21 @@
             <version>${dropwizard.version}</version>
         </dependency>
         <dependency>
-            <groupId>au.com.dius</groupId>
-            <artifactId>pact-jvm-consumer-junit_2.12</artifactId>
-            <version>3.5.10</version>
-            <scope>test</scope>
+            <groupId>io.dropwizard</groupId>
+            <artifactId>dropwizard-testing</artifactId>
+            <version>${dropwizard.version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/au.com.dius/pact-jvm-provider-junit -->
         <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.8.5</version>
+            <groupId>au.com.dius</groupId>
+            <artifactId>pact-jvm-provider-junit_2.12</artifactId>
+            <version>3.6.15</version>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.google.code.gson</groupId>-->
+<!--            <artifactId>gson</artifactId>-->
+<!--            <version>2.8.5</version>-->
+<!--        </dependency>-->
     </dependencies>
     <build>
         <finalName>listingreader-producer-${version}</finalName>
