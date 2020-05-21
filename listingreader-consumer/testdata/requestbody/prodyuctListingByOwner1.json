@@ -1,0 +1,128 @@
+{
+  "status": {
+    "status": "ok",
+    "message": "OK",
+    "code": 200
+  },
+  "data": {
+    "id": "5",
+    "level": 1,
+    "label": "Vehicles",
+    "active": true,
+    "children": {
+      "5.9": {
+        "id": "5.9",
+        "level": 2,
+        "label": "Auto Parts & Accessories",
+        "parents": [
+          "5"
+        ],
+        "active": true,
+        "children": {
+          "5.9.16": {
+            "id": "5.9.16",
+            "level": 3,
+            "label": "Glass",
+            "parents": [
+              "5",
+              "5.9"
+            ],
+            "active": true,
+            "attributes": [
+              {
+                "attributeName": "brand",
+                "uiAttributeName": "Brand",
+                "priority": 0,
+                "description": "The name of the manufacturer.",
+                "merchantRequirement": "Required",
+                "consumerRequirement": "Recommended",
+                "values": [
+                  "1-800 Radiator",
+                  "1A Auto ",
+                  "1 Factory Radio",
+                  "2Crave"
+                ],
+                "minValues": 0,
+                "maxValues": 1,
+                "allowOther": true,
+                "selectionMode": "SimpleList"
+              },
+              {
+                "attributeName": "placementOnVehicle",
+                "uiAttributeName": "Placement On Vehicle",
+                "priority": 0,
+                "description": "The primary exterior color of the item.",
+                "merchantRequirement": "Optional",
+                "consumerRequirement": "Optional",
+                "values": [
+                  "Front",
+                  "Left ",
+                  "Lower",
+                  "Rear"
+                ],
+                "minValues": 0,
+                "maxValues": 1,
+                "allowOther": true,
+                "selectionMode": "SimpleList"
+              }
+            ]
+          },
+          "5.9.15": {
+            "id": "5.9.15",
+            "level": 3,
+            "label": "Gauges",
+            "parents": [
+              "5",
+              "5.9"
+            ],
+            "active": true,
+            "attributes": [
+              {
+                "attributeName": "brand",
+                "uiAttributeName": "Brand",
+                "priority": 0,
+                "description": "The name of the manufacturer.",
+                "merchantRequirement": "Required",
+                "consumerRequirement": "Recommended",
+                "values": [
+                  "1-800 Radiator",
+                  "1A Auto ",
+                  "1 Factory Radio",
+                  "2Crave"
+                ],
+                "minValues": 0,
+                "maxValues": 1,
+                "allowOther": true,
+                "selectionMode": "SimpleList"
+              },
+              {
+                "attributeName": "fitmentType",
+                "uiAttributeName": "Fitment Type",
+                "priority": 0,
+                "merchantRequirement": "Optional",
+                "consumerRequirement": "Optional",
+                "values": [
+                  "Direct Replacement",
+                  "Performance/Custom"
+                ],
+                "minValues": 0,
+                "maxValues": 1,
+                "allowOther": true,
+                "selectionMode": "SimpleList"
+              }
+            ]
+          }
+        }
+      },
+      "5.10": {
+        "id": "5.10",
+        "level": 2,
+        "label": "Other - Vehicles",
+        "parents": [
+          "5"
+        ],
+        "active": true
+      }
+    }
+  }
+}
