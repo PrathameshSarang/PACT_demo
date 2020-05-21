@@ -1,100 +1,46 @@
 package com.afourtech.beans;
 
+import com.afourtech.dao.data.CategoryDataDAO;
 import com.afourtech.model.CategoryData;
+import com.afourtech.model.Status;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
+import java.util.stream.StreamSupport;
 
 public class CategoryDataResponse {
 
-    public CategoryDataResponse() {}
+    private Status status;
+    private CategoryData data;
 
-    private int status;
-    private String message;
-    private CategoryData[] data;
-
-    //TODO: Implement parametrized constructor
-    public CategoryDataResponse(int status, int message, CategoryData[] data){
-        throw new NotImplementedException();
+    public Status getStatus() {
+        return status;
     }
 
-//    @JsonProperty
-//    public Long getId() {
-//        return id;
-//    }
-//
-//
-//    public void setId(Long id) {
-//        this.id = id;
-//    }
-//
-//    @JsonProperty
-//    public String getFrom() {
-//        return from;
-//    }
-//
-//    public void setFrom(String from) {
-//        this.from = from;
-//    }
-//
-//    @JsonView
-//    @JsonProperty
-//    public String getTo() {
-//        return to;
-//    }
-//
-//    public void setTo(String to) {
-//        this.to = to;
-//    }
-//
-//    @JsonProperty
-//    public int getConversionMultiple() {
-//        return conversionMultiple;
-//    }
-//
-//    public void setConversionMultiple(int conversionMultiple) {
-//        this.conversionMultiple = conversionMultiple;
-//    }
-//
-//    @JsonProperty
-//    public int getQuantity() {
-//        return quantity;
-//    }
-//
-//
-//    public void setQuantity(int quantity) {
-//        this.quantity = quantity;
-//    }
-//
-//    @JsonProperty
-//    public int getTotalCalculatedAmount() {
-//        return totalCalculatedAmount;
-//    }
-//
-//    public void setTotalCalculatedAmount(int totalCalculatedAmount) {
-//        this.totalCalculatedAmount = totalCalculatedAmount;
-//    }
-//
-//    @JsonProperty
-//    public String getExchangeEnvironmentInfo() {
-//        return exchangeEnvironmentInfo;
-//    }
-//
-//    public void setExchangeEnvironmentInfo(String exchangeEnvironmentInfo) {
-//        this.exchangeEnvironmentInfo = exchangeEnvironmentInfo;
-//    }
-//
-//    @JsonProperty
-//    public String getConversionEnvironmentInfo() {
-//        return conversionEnvironmentInfo;
-//    }
-//
-//    public void setConversionEnvironmentInfo(String conversionEnvironmentInfo) {
-//        this.conversionEnvironmentInfo = conversionEnvironmentInfo;
-//    }
+    public CategoryData getData() {
+        return data;
+    }
 
     @Override
     public String toString() {
-        throw new NotImplementedException();
+        return "CategoryDataResponse{" +
+                "status=" + status +
+                ", data=" + data +
+                '}';
     }
+
+    public CategoryDataResponse(Status status, CategoryData data) {
+        this.status = status;
+        this.data = data;
+    }
+
+    public static void main(String[] args) throws JsonProcessingException {
+
+        /*CategoryDataResponse categoryDataResponse=new CategoryDataResponse(new Status(),CategoryDataDAO.data);
+        ObjectMapper objectMapper=new ObjectMapper();
+        System.out.println(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(categoryDataResponse));
+*/    }
 }

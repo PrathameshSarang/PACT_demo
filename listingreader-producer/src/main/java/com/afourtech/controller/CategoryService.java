@@ -6,6 +6,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+
+import com.afourtech.dao.data.CategoryDataDAO;
+import com.afourtech.model.Status;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 @Path("/internal/listingreader/v1")
@@ -19,10 +22,11 @@ public class CategoryService {
   @GET
   @Path("/category/{categoryId}")
   public CategoryDataResponse getCategoryById(@PathParam("categoryId") String categoryId) {
-    throw new NotImplementedException();
+    //throw new NotImplementedException();
   //TODO: Retrieve data from dummy DAO and populated CategoryData or just return the same value always
   // i.e.   return new CategoryData();
-
+    CategoryDataResponse categoryDataResponse=new CategoryDataResponse(new Status(), new CategoryDataDAO().getSpecificCategory(categoryId));
+    return categoryDataResponse;
   }
 
   @GET
@@ -31,6 +35,7 @@ public class CategoryService {
 
     //TODO: Retrieve data from dummy DAO and populated CategoryData or just return the same value always
     // i.e.   return new array of  CategoryData();
-    throw new NotImplementedException();
+    CategoryDataResponse categoryDataResponse=new CategoryDataResponse(new Status(), new CategoryDataDAO().getAllCategories());
+    return categoryDataResponse;
   }
 }

@@ -15,7 +15,7 @@ import org.junit.Test;
 import java.util.HashMap;
 
 
-public class Test_ConsumerSide_v2 {
+public class ConsumerSide_v2 {
 
     public int mockPort=8085;
 
