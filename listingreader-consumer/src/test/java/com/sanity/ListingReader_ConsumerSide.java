@@ -70,7 +70,7 @@ public class ListingReader_ConsumerSide {
 
     /*@Test
     @PactVerification
-    public void givenGet_currencyExchange_shouldReturn200_with_properBody(){
+    public void test_givenOrderIdShouldGetOrderDetails(){
 
         Client client= ClientBuilder.newClient();
         WebTarget webTarget=client.target(currencyExchange_mockProvider.getUrl() + "/internal/listingreader/v1/category/5");
@@ -87,7 +87,7 @@ public class ListingReader_ConsumerSide {
 
     @Test
     @PactVerification
-    public void givenGet_currencyExchange_shouldReturn200_with_properBody(){
+    public void test_givenOrderIdShouldGetOrderDetails(){
 
         //For catagory Id 1
         Client client= ClientBuilder.newClient();
