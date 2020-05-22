@@ -76,18 +76,27 @@
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
-<!--            <plugin>-->
-<!--                &lt;!&ndash; mvn pact:publish  &ndash;&gt;-->
-<!--                <groupId>au.com.dius</groupId>-->
-<!--                <artifactId>pact-jvm-provider-maven_2.11</artifactId>-->
-<!--                <version>3.5.10</version>-->
-<!--                <configuration>-->
-<!--                    <pactDirectory>../pacts</pactDirectory> &lt;!&ndash; Defaults to ${project.build.directory}/pacts &ndash;&gt;-->
-<!--                    <pactBrokerUrl>http://192.168.11.1:8113</pactBrokerUrl>-->
-<!--                    <projectVersion>${project.version}</projectVersion> &lt;!&ndash; Defaults to ${project.version} &ndash;&gt;-->
-<!--                    <trimSnapshot>true</trimSnapshot> &lt;!&ndash; Defaults to false &ndash;&gt;-->
-<!--                </configuration>-->
-<!--            </plugin>-->
+            <plugin>
+                <!-- mvn pact:verify  -->
+                <groupId>au.com.dius</groupId>
+                <artifactId>pact-jvm-provider-maven_2.11</artifactId>
+                <version>3.5.10</version>
+                <configuration>
+                    <serviceProviders>
+                        <!-- You can define as many as you need, but each must have a unique name -->
+                        <serviceProvider>
+                            <name>listingReader_provider</name>
+                            <!-- All the provider properties are optional, and have sensible defaults (shown below) -->
+                            <protocol>http</protocol>
+                            <host>localhost</host>
+                            <port>8084</port>
+                            <path>/</path>
+                            <pactBrokerUrl>http://192.168.11.1:8113</pactBrokerUrl>
+                        </serviceProvider>
+                    </serviceProviders>
+                    <pactBrokerUrl/>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 </project>

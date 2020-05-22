@@ -68,23 +68,6 @@ public class ListingReader_ConsumerSide {
                 .toPact();  // This creates a pact file
     }
 
-    /*@Test
-    @PactVerification
-    public void test_givenOrderIdShouldGetOrderDetails(){
-
-        Client client= ClientBuilder.newClient();
-        WebTarget webTarget=client.target(currencyExchange_mockProvider.getUrl() + "/internal/listingreader/v1/category/5");
-        Response response=webTarget
-                .request(MediaType.APPLICATION_JSON)
-                .get();
-        //Assert.assertEquals(response.getStatus(),200);
-        WebTarget webTarget2=client.target(currencyExchange_mockProvider.getUrl() + "/internal/listingreader/v1/category/6");
-        Response response2=webTarget2
-                .request(MediaType.APPLICATION_JSON)
-                .get();
-    }
-*/
-
     @Test
     @PactVerification
     public void test_givenOrderIdShouldGetOrderDetails(){
