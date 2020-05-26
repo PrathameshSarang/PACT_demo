@@ -60,6 +60,11 @@
             <artifactId>gson</artifactId>
             <version>2.8.5</version>
         </dependency>
+        <dependency>
+            <groupId>com.remondis.cdc</groupId>
+            <artifactId>pact-consumer-builder</artifactId>
+            <version>0.1.5</version>
+        </dependency>
     </dependencies>
     <build>
         <finalName>listingreader-consumer-${version}</finalName>
@@ -112,6 +117,7 @@
                 <configuration>
                     <pactDirectory>../pacts</pactDirectory> <!-- Defaults to ${project.build.directory}/pacts -->
                     <pactBrokerUrl>http://192.168.11.1:8113</pactBrokerUrl>
+                    <!--<pactBrokerUrl>https://knandy.pact.dius.com.au/</pactBrokerUrl>-->
                     <projectVersion>${project.version}</projectVersion> <!-- Defaults to ${project.version} -->
                     <trimSnapshot>true</trimSnapshot> <!-- Defaults to false -->
                 </configuration>

@@ -3,6 +3,7 @@ package com.afourtech.model;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,7 +17,7 @@ import java.util.Map;
  */
 
 //@JsonIgnoreProperties(ignoreUnknown = true)
-public class CategoryData {
+public class CategoryData implements Serializable {
   public CategoryData() {
   }
 
@@ -25,6 +26,10 @@ public class CategoryData {
 
   @JsonInclude(Include.NON_NULL)
   private Integer level;
+
+  public void setChildren(Map<String, CategoryData> children) {
+    this.children = children;
+  }
 
   @JsonInclude(Include.NON_NULL)
   private String label;
