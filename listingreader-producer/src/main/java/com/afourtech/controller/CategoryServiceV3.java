@@ -1,45 +1,29 @@
 package com.afourtech.controller;
 
-import com.afourtech.application.ListingReaderApplication;
 import com.afourtech.beans.CategoryDataResponse;
-import com.afourtech.beans.CategoryDataResponseV3;
-import com.afourtech.model.StatusV3;
-import com.afourtech.trace.TraceMonitor;
+import com.afourtech.beans.CategoryDataResponseNewV1;
+import com.afourtech.beans.CategoryDataResponseNewV2;
+import com.afourtech.dao.data.CategoryDataDAO;
+import com.afourtech.model.Status;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import com.afourtech.beans.CategoryDataResponseV2;
-import com.afourtech.dao.data.CategoryDataDAO;
-import com.afourtech.model.Status;
-import com.afourtech.model.StatusV2;
-
-@Path("/internal/listingreader/v1")
+@Path("/internal/listingreader/v3")
 @Produces(MediaType.APPLICATION_JSON)
-public class CategoryService {
+public class CategoryServiceV3 {
 
   private final int port = 8010;
   private final String protocol = "http";
   private final String host = "localhost";
-  private TraceMonitor traceMonitor;
 
-  public CategoryService(TraceMonitor traceMonitor){
-    this.traceMonitor=new TraceMonitor();
-  }
   @GET
   @Path("/category/{categoryId}")
-  public CategoryDataResponse getCategoryById(@PathParam("categoryId") String categoryId) {
-    CategoryDataResponse categoryDataResponse=null;
-    try {
-      categoryDataResponse=new CategoryDataResponse(new Status(), new CategoryDataDAO().getSpecificCategory(categoryId));
-
-    }finally {
-      traceMonitor.printTrace();
-      return categoryDataResponse;
-    }
-
+  public CategoryDataResponseNewV2 getCategoryById(@PathParam("categoryId") String categoryId) {
+    CategoryDataResponseNewV2 categoryDataResponse=new CategoryDataResponseNewV2(new Status(), new CategoryDataDAO().getSpecificCategoryV3(categoryId));
+    return categoryDataResponse;
   }
 
   @GET

@@ -2,8 +2,7 @@ package com.afourtech.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-
-import java.io.Serializable;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,20 +16,13 @@ import java.util.Map;
  */
 
 //@JsonIgnoreProperties(ignoreUnknown = true)
-public class CategoryData implements Serializable {
-  public CategoryData() {
-    super();
-  }
+public class CategoryDataV4 {
 
   @JsonInclude(Include.NON_NULL)
   private String id;
 
   @JsonInclude(Include.NON_NULL)
   private Integer level;
-
-  public void setChildren(Map<String, CategoryData> children) {
-    this.children = children;
-  }
 
   @JsonInclude(Include.NON_NULL)
   private String label;
@@ -40,19 +32,24 @@ public class CategoryData implements Serializable {
 
   private boolean active;
 
-  public CategoryData(boolean active, Map<String, CategoryData> children) {
+  public void setChildren(Map<String, CategoryDataV4> children) {
+    this.children = children;
+  }
+
+  public CategoryDataV4(boolean active, Map<String, CategoryDataV4> children) {
     this.active = active;
     this.children = children;
   }
 
-  @JsonInclude(JsonInclude.Include.NON_NULL)
+  @JsonInclude(Include.NON_NULL)
   private List<CategoryAttributeData> attributes;
 
+  @JsonSerialize(keyUsing = CategoryDataV4Serilizer.class)
   @JsonInclude(Include.NON_NULL)
-  private Map<String, CategoryData> children;
+  private Map<String, CategoryDataV4> children;
 
   //Level 2 Attribute
-  public CategoryData(String id, Integer level, String label, List<String> parents, boolean active, Map<String, CategoryData> children) {
+  public CategoryDataV4(String id, Integer level, String label, List<String> parents, boolean active, Map<String, CategoryDataV4> children) {
     this.id = id;
     this.level = level;
     this.label = label;
@@ -61,7 +58,7 @@ public class CategoryData implements Serializable {
     this.children = children;
   }
 
-  public CategoryData(String id, Integer level, String label, List<String> parents, boolean active, List<CategoryAttributeData> attributes) {
+  public CategoryDataV4(String id, Integer level, String label, List<String> parents, boolean active, List<CategoryAttributeData> attributes) {
     this.id = id;
     this.level = level;
     this.label = label;
@@ -72,7 +69,7 @@ public class CategoryData implements Serializable {
 
   @Override
   public String toString() {
-    return "categoryData: {" +
+    return "CategoryData{" +
             "id='" + id + '\'' +
             ", level=" + level +
             ", label='" + label + '\'' +
@@ -86,7 +83,7 @@ public class CategoryData implements Serializable {
   /**
    * @deccription For Level 1 catagory
    */
-  public CategoryData(String id, Integer level, String label, boolean active, Map<String, CategoryData> children) {
+  public CategoryDataV4(String id, Integer level, String label, boolean active, Map<String, CategoryDataV4> children) {
     this.id = id;
     this.level = level;
     this.label = label;
@@ -158,18 +155,18 @@ public class CategoryData implements Serializable {
     this.attributes = attributes;
   }
 
-  public Map<String, CategoryData> getChildren() {
+  public Map<String, CategoryDataV4> getChildren() {
     return children;
   }
 
-  public CategoryData getChild(String categoryId) {
+  public CategoryDataV4 getChild(String categoryId) {
     if (this.children == null) {
       return null;
     }
     return children.get(categoryId);
   }
 
-  public void setChild(String childId, CategoryData child) {
+  public void setChild(String childId, CategoryDataV4 child) {
     if (this.children == null) {
       this.children = new HashMap<>();
     }

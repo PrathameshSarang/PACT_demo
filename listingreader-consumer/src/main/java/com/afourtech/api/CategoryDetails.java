@@ -7,6 +7,7 @@ import com.afourtech.model.Status;
 public class CategoryDetails {
 
     public CategoryDetails() {
+        super();
     }
 
     private Status status;

@@ -65,6 +65,19 @@
             <artifactId>pact-consumer-builder</artifactId>
             <version>0.1.5</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.mockito/mockito-all -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>2.0.2-beta</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20200518</version>
+        </dependency>
+
     </dependencies>
     <build>
         <finalName>listingreader-consumer-${version}</finalName>

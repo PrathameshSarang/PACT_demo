@@ -38,6 +38,10 @@ public class CategoryData {
 
   private boolean active;
 
+  public void setChildren(Map<String, CategoryData> children) {
+    this.children = children;
+  }
+
   public CategoryData(boolean active, Map<String, CategoryData> children) {
     this.active = active;
     this.children = children;

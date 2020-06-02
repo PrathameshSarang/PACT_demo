@@ -1,6 +1,8 @@
 package com.afourtech.dao.data;
 
 import com.afourtech.model.CategoryData;
+import com.afourtech.model.CategoryDataV2;
+import com.afourtech.model.CategoryDataV3;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -74,6 +76,7 @@ public class CategoryDataDAO {
                         "Vehicles",
                         true,
                         categoryDataMapLevelOne_5
+                    //null
                 ));
 
         //===============================================================
@@ -123,6 +126,7 @@ public class CategoryDataDAO {
                         "Toys, Games, & Hobbies",
                         true,
                         categoryDataMapLevelOne_6
+                    //null
                 ));
         /*data=new CategoryData(
                 true,
@@ -143,10 +147,25 @@ public class CategoryDataDAO {
 
     }
 
+    public CategoryDataV2 getSpecificCategoryV2(String catagoryId){
+        CategoryData categoryData=categoryDataMapLevelZero.get(catagoryId);
+        CategoryDataV2 categoryDataV2=new CategoryDataV2(categoryData);
+        return categoryDataV2;
+
+    }
+
+    public CategoryDataV3 getSpecificCategoryV3(String catagoryId){
+        CategoryData categoryData=categoryDataMapLevelZero.get(catagoryId);
+        CategoryDataV3 categoryDataV3=new CategoryDataV3(categoryData);
+        return categoryDataV3;
+
+    }
+
 
     public static void main(String[] args) throws JsonProcessingException {
-
-        //ObjectMapper objectMapper=new ObjectMapper();
-        //System.out.println(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(data));
+        CategoryData categoryData=categoryDataMapLevelZero.get("5");
+        CategoryDataV2 categoryDataV2=new CategoryDataV2(categoryData);
+        ObjectMapper objectMapper=new ObjectMapper();
+        System.out.println(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(categoryData));
     }
 }
