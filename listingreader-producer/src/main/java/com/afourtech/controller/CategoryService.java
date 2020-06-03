@@ -36,7 +36,7 @@ public class CategoryService {
       categoryDataResponse=new CategoryDataResponse(new Status(), new CategoryDataDAO().getSpecificCategory(categoryId));
 
     }finally {
-      traceMonitor.printTrace();
+      //traceMonitor.printTrace();
       return categoryDataResponse;
     }
 
@@ -70,5 +70,4 @@ public class CategoryService {
         new CategoryDataDAO().getSpecificCategory(categoryId));
     return categoryDataResponse;
   }*/
-
 }
