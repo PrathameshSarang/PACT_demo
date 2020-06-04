@@ -4,7 +4,7 @@ import com.afourtech.application.ListingReaderApplication;
 import com.afourtech.beans.CategoryDataResponse;
 import com.afourtech.beans.CategoryDataResponseV3;
 import com.afourtech.model.StatusV3;
-import com.afourtech.trace.TraceMonitor;
+//import com.afourtech.trace.TraceMonitor;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -23,11 +23,11 @@ public class CategoryService {
   private final int port = 8010;
   private final String protocol = "http";
   private final String host = "localhost";
-  private TraceMonitor traceMonitor;
+  //private TraceMonitor traceMonitor;
 
-  public CategoryService(TraceMonitor traceMonitor){
-    this.traceMonitor=new TraceMonitor();
-  }
+//  public CategoryService(TraceMonitor traceMonitor){
+//    this.traceMonitor=new TraceMonitor();
+//  }
   @GET
   @Path("/category/{categoryId}")
   public CategoryDataResponse getCategoryById(@PathParam("categoryId") String categoryId) {

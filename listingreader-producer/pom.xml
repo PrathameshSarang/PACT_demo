@@ -12,8 +12,7 @@
     <properties>
         <dropwizard.version>2.0.9</dropwizard.version>
         <aspectj.version>1.9.5</aspectj.version>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <apectJLibraryPath>D:/Kingshuk/ContractTesting/PactDemo/test/PACT_demo/listingreader-producer/lib/aspectIntegrationProj-1.0-SNAPSHOT.jar</apectJLibraryPath>
     </properties>
 
     <dependencies>
@@ -39,13 +38,6 @@
             <artifactId>json</artifactId>
             <version>20200518</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjrt -->
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjrt</artifactId>
-            <version>1.9.5</version>
-        </dependency>
-
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
@@ -53,9 +45,18 @@
             <scope>compile</scope>
         </dependency>
 
+        <!--Custom Added Dependency-->
+        <dependency>
+            <groupId>com.afourtech.aspect</groupId>
+            <artifactId>aspectIntegrationProj</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <systemPath>${apectJLibraryPath}</systemPath>
+            <scope>system</scope>
+        </dependency>
+
     </dependencies>
     <build>
-        <finalName>listingreader-producer-${version}</finalName>
+        <finalName>listingreader-producer-${project.version}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -110,33 +111,6 @@
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>aspectj-maven-plugin</artifactId>
-                <version>1.7</version>
-                <configuration>
-                    <complianceLevel>${java.version}</complianceLevel>
-                    <source>${maven.compiler.source}</source>
-                    <target>${maven.compiler.target}</target>
-                    <showWeaveInfo>true</showWeaveInfo>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>compile</goal>
-                            <goal>test-compile</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.aspectj</groupId>
-                        <artifactId>aspectjtools</artifactId>
-                        <version>${aspectj.version}</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
-
             <!--            <plugin>-->
 <!--                &lt;!&ndash; mvn pact:publish  &ndash;&gt;-->
 <!--                <groupId>au.com.dius</groupId>-->

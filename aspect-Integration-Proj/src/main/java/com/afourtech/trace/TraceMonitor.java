@@ -1,15 +1,10 @@
 package com.afourtech.trace;
 
-
-import com.afourtech.standart.logger.LoggerThreadLocal;
-import com.afourtech.standart.logger.Method;
-import java.util.ArrayList;
+import com.afourtech.logger.LoggerThreadLocal;
+import com.afourtech.logger.Method;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
+import java.util.ArrayList;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.aspectj.lang.JoinPoint;
@@ -18,8 +13,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 
-@Path("/trace")
-@Produces(MediaType.APPLICATION_JSON)
+
 @Aspect
 public class TraceMonitor {
 
@@ -89,8 +83,6 @@ public class TraceMonitor {
         }
     }
 
-    @GET
-    @Path("/category")
     public String printTrace() {
         StringBuilder sb = new StringBuilder();
         try {

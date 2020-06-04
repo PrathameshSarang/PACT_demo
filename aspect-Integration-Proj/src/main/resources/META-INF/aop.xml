@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aspectj>
+  <aspects>
+    <aspect name="com.afourtech.trace.TraceMonitor"/>
+    <weaver options="-verbose -showWeaveInfo">
+      <include within="com.afourtech.controller.*"/>
+      <include within="com.afourtech.trace.TraceMonitor"/>
+    </weaver>
+  </aspects>
+  <!--<weaver options="-showWeaveInfo -debug -verbose"/>-->
+</aspectj>

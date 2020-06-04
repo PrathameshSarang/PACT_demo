@@ -1,4 +1,4 @@
-package com.afourtech.standart.logger;
+package com.afourtech.logger;
 
 import java.util.List;
 
